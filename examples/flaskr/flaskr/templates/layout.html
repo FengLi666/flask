@@ -1,12 +1,22 @@
 <!doctype html>
 <title>Flaskr</title>
+<script src="{{ url_for('static',filename='jquery.js') }}"></script>
+<script>
+    $(document).ready(function(){
+        setTimeout(function() {
+          $('.flash').fadeOut('fast');
+        }, 3000); // <-- time in milliseconds
+    });
+</script>
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 <div class="page">
   <h1>Flaskr</h1>
   <div class="metanav">
   {% if not session.logged_in %}
     <a href="{{ url_for('flaskr.login') }}">log in</a>
+      <a href="{{ url_for('flaskr.sign_in') }}">sign in</a>
   {% else %}
+      <a>{{ session.username }}</a>
     <a href="{{ url_for('flaskr.logout') }}">log out</a>
   {% endif %}
   </div>

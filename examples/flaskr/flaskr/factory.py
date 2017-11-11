@@ -64,3 +64,4 @@ def register_teardowns(app):
             g.sqlite_db.close()
 
 app = create_app()
+app.run(debug=True, port=8100)
